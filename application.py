@@ -156,9 +156,9 @@ def recsys_compute(id):
 
 @app.route("/view_recommendations/<int:id>")
 def view_recommendations(id):
-    rec,pred_1, pred_2, pred_3, pred_4, pred_5, pred_6,pred_7, pred_8, pred_9,pred_10 = model.show_recommendations(id)
+    rec,pred_1, pred_2, pred_3, pred_4, pred_5 = model.show_recommendations(id)
     model.add_pageview(user_id=session["user"], item_id=None, page="recommendations", activity_type="start viewing recommendations", rating=None) #pageview
-    return render_template("recommendations.html", id=id, rec=rec, pred_1=pred_1, pred_2=pred_2,pred_3=pred_3, pred_4=pred_4,pred_5=pred_5, pred_6=pred_6, pred_7=pred_7, pred_8=pred_8, pred_9=pred_9, pred_10=pred_10)
+    return render_template("recommendations.html", id=id, rec=rec, pred_1=pred_1, pred_2=pred_2,pred_3=pred_3, pred_4=pred_4,pred_5=pred_5)
 
 
 @app.route("/rate_recommendations", methods=["POST"])
@@ -169,12 +169,7 @@ def add_rec_rating():
     user_rating_3 = request.form.get("user_rating_3")
     user_rating_4 = request.form.get("user_rating_4")
     user_rating_5 = request.form.get("user_rating_5")
-    user_rating_6 = request.form.get("user_rating_6")
-    user_rating_7 = request.form.get("user_rating_7")
-    user_rating_8 = request.form.get("user_rating_8")
-    user_rating_9 = request.form.get("user_rating_9")
-    user_rating_10 = request.form.get("user_rating_10")
-    model.add_rec_rating(user_id,user_rating_1,user_rating_2,user_rating_3,user_rating_4,user_rating_5,user_rating_6,user_rating_7,user_rating_8,user_rating_9,user_rating_10)
+    model.add_rec_rating(user_id,user_rating_1,user_rating_2,user_rating_3,user_rating_4,user_rating_5)
     model.add_pageview(user_id=session["user"], item_id=None, page="recommendations", activity_type="rate recommendations and finish view", rating=None) #pageview
     flash ("You've rated your recommendations!Thank you for the feedback!")
     return redirect(url_for('to_overall_feedback', id=user_id))
