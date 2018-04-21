@@ -106,11 +106,11 @@ class Recommendations(Base):
     pred_3 = Column(Integer, nullable=True)
     pred_4 = Column(Integer, nullable=True)
     pred_5 = Column(Integer, nullable=True)
-    # pred_6 = Column(Integer, nullable=True)
-    # pred_7 = Column(Integer, nullable=True)
-    # pred_8 = Column(Integer, nullable=True)
-    # pred_9 = Column(Integer, nullable=True)
-    # pred_10= Column(Integer, nullable=True)
+    pred_6 = Column(Integer, nullable=True)
+    pred_7 = Column(Integer, nullable=True)
+    pred_8 = Column(Integer, nullable=True)
+    pred_9 = Column(Integer, nullable=True)
+    pred_10= Column(Integer, nullable=True)
 
     user = relationship("User", backref=backref("recommendations", order_by=id))
     # item = relationship("Item", backref=backref("recommendations", order_by=id))
@@ -136,11 +136,11 @@ class Recrating(Base):
     user_rating_3 = Column(Integer, nullable = True)
     user_rating_4 = Column(Integer, nullable = True)
     user_rating_5 = Column(Integer, nullable = True)
-    # user_rating_6 = Column(Integer, nullable = True)
-    # user_rating_7 = Column(Integer, nullable = True)
-    # user_rating_8 = Column(Integer, nullable = True)
-    # user_rating_9 = Column(Integer, nullable = True)
-    # user_rating_10 = Column(Integer, nullable = True)
+    user_rating_6 = Column(Integer, nullable = True)
+    user_rating_7 = Column(Integer, nullable = True)
+    user_rating_8 = Column(Integer, nullable = True)
+    user_rating_9 = Column(Integer, nullable = True)
+    user_rating_10 = Column(Integer, nullable = True)
     rec_rating_time = Column(DateTime, server_default=func.now())
 
     user = relationship("User", backref=backref("recrating", order_by=id))
@@ -184,12 +184,12 @@ class PredictionLog(Base):
     pred_3 = Column(String(128), nullable=True)
     pred_4 = Column(String(128), nullable=True)
     pred_5 = Column(String(128), nullable=True)
-    # pred_6 = Column(String(128), nullable=True)
-    # pred_7 = Column(String(128), nullable=True)
-    # pred_8 = Column(String(128), nullable=True)
-    # pred_9 = Column(String(128), nullable=True)
-    # pred_10 = Column(String(128), nullable=True)
-    # algorithm = Column(String(64), nullable=True)
+    pred_6 = Column(String(128), nullable=True)
+    pred_7 = Column(String(128), nullable=True)
+    pred_8 = Column(String(128), nullable=True)
+    pred_9 = Column(String(128), nullable=True)
+    pred_10 = Column(String(128), nullable=True)
+    algorithm = Column(String(64), nullable=True)
     pred_time = Column(DateTime, server_default=func.now())
 
     user = relationship("User", backref=backref("predictionlogs", order_by=id))
@@ -298,22 +298,22 @@ def show_recommendations(id):
     pred_2=Item.query.filter_by(id=rec.pred_2).first()
     pred_3=Item.query.filter_by(id=rec.pred_3).first()
     pred_4=Item.query.filter_by(id=rec.pred_4).first()
-    # pred_5=Item.query.filter_by(id=rec.pred_5).first()
-    # pred_6=Item.query.filter_by(id=rec.pred_6).first()
-    # pred_7=Item.query.filter_by(id=rec.pred_7).first()
-    # pred_8=Item.query.filter_by(id=rec.pred_8).first()
-    # pred_9=Item.query.filter_by(id=rec.pred_9).first()
-    # pred_10=Item.query.filter_by(id=rec.pred_10).first()
-    # return rec, pred_1, pred_2, pred_3, pred_4, pred_5, pred_6,pred_7, pred_8, pred_9,pred_10
+    pred_5=Item.query.filter_by(id=rec.pred_5).first()
+    pred_6=Item.query.filter_by(id=rec.pred_6).first()
+    pred_7=Item.query.filter_by(id=rec.pred_7).first()
+    pred_8=Item.query.filter_by(id=rec.pred_8).first()
+    pred_9=Item.query.filter_by(id=rec.pred_9).first()
+    pred_10=Item.query.filter_by(id=rec.pred_10).first()
+    return rec, pred_1, pred_2, pred_3, pred_4, pred_5, pred_6,pred_7, pred_8, pred_9,pred_10
 
 
-# ,user_rating_6,user_rating_7,user_rating_8,user_rating_9,user_rating_10
 
 
-def add_rec_rating(user_id,user_rating_1,user_rating_2,user_rating_3,user_rating_4,user_rating_5):
-    rec_rating = Recrating(user_id=user_id,user_rating_1=user_rating_1,user_rating_2=user_rating_2,user_rating_3=user_rating_3,user_rating_4=user_rating_4,user_rating_5=user_rating_5)
+
+def add_rec_rating(user_id,user_rating_1,user_rating_2,user_rating_3,user_rating_4,user_rating_5,user_rating_6,user_rating_7,user_rating_8,user_rating_9,user_rating_10):
+    rec_rating = Recrating(user_id=user_id,user_rating_1=user_rating_1,user_rating_2=user_rating_2,user_rating_3=user_rating_3,user_rating_4=user_rating_4,user_rating_5=user_rating_5,user_rating_6=user_rating_6,user_rating_7=user_rating_7,user_rating_8=user_rating_8,user_rating_9=user_rating_9,user_rating_10=user_rating_10)
     session.add(rec_rating)
-    # session.commit(),user_rating_6=user_rating_6,user_rating_7=user_rating_7,user_rating_8=user_rating_8,user_rating_9=user_rating_9,user_rating_10=user_rating_10
+    session.commit()
 
 def add_feedback(user_id,novelty,unexpectedness):
     new_feedback = Feedback(user_id=user_id,novelty=novelty, unexpectedness=unexpectedness)

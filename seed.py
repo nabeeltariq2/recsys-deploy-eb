@@ -17,7 +17,7 @@ def auto_truncate_title(val):
     return val[:255]
 
 
-df_ratings = pd.read_csv("data/reviews.csv")
+df_ratings = pd.read_csv("data/reviews_amazon_musical_instruments_small.csv")
 
 # Sampling
 # df_ratings = df_ratings.sample(frac=0.1, replace=True)
@@ -66,7 +66,7 @@ df_ratings["userid_key"] = df_ratings["userid_key"] + 1
 
 
 
-df_items = pd.read_csv("data/meta.csv", low_memory= False, converters={'description': auto_truncate_description,'title': auto_truncate_title})
+df_items = pd.read_csv("movielens/items_amazon_musical_instruments.csv", low_memory= False, converters={'description': auto_truncate_description,'title': auto_truncate_title})
 
 
 # Sampling

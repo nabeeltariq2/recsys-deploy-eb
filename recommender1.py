@@ -69,7 +69,7 @@ def compute_recommendations():
 
 
     #writing the function for top predictions
-    def get_top_n(predictions, n=5):
+    def get_top_n(predictions, n=10):
 #     Return the top-N recommendation for each user from a set of predictions.
 
 #     Args:
@@ -94,7 +94,7 @@ def compute_recommendations():
 
         return top_n
 # getting the top 10 predictions
-    top_n = get_top_n(predictions, n=5)
+    top_n = get_top_n(predictions, n=10)
 
 # Print the recommended items for each user
     a = []
@@ -107,14 +107,16 @@ def compute_recommendations():
     df_pred = pd.DataFrame(df_list_pred.B.values.tolist())
 
     df_pred.columns = ['pred_1', 'pred_2','pred_3','pred_4',
-                                   'pred_5']
+                                   'pred_5','pred_6','pred_7','pred_8',
+                                  'pred_9','pred_10']
 
     df_items = pd.read_sql('SELECT * FROM items;', con = engine)
 
     # df_pred = df_pred.applymap(lambda x: df_items.loc[x, 'title'])
     df_pred[['id']]=df_user
     df_pred = df_pred[['id','pred_1', 'pred_2','pred_3','pred_4',
-                                   'pred_5']]
+                                   'pred_5','pred_6','pred_7','pred_8',
+                                  'pred_9','pred_10']]
 
     df_pred['id'] = df_pred['id'].astype(int)
 
@@ -127,7 +129,8 @@ def compute_recommendations():
     df_log['algorithm'] = 'KNNBasic'
     df_log = df_log.rename(columns={'id': 'user_id'})
     df_log = df_log[['user_id','pred_1', 'pred_2','pred_3','pred_4',
-                                   'pred_5', 'algorithm']]
+                                   'pred_5','pred_6','pred_7','pred_8',
+                                  'pred_9','pred_10', 'algorithm']]
 
     df_log.to_sql('predictionlogs',engine,if_exists='append', index=False)#if_exists='append'
     session.commit()

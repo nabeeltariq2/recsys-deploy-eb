@@ -1,0 +1,5 @@
+{"inputs": {"userid": 0.19041866946414454}, "name": "AnchoringExperiment", "checksum": "da2c236d", "params": {"var": 1, "model_select": 1}, "time": 1524282769, "salt": "AnchoringExperiment", "event": "exposure"}
+{"inputs": {"userid": 0.19978820726598012}, "name": "AnchoringExperiment", "checksum": "da2c236d", "params": {"var": 2, "model_select": 2}, "time": 1524282966, "salt": "AnchoringExperiment", "event": "exposure"}
+{"inputs": {"userid": 0.6317613675929806}, "name": "AnchoringExperiment", "checksum": "da2c236d", "params": {"var": 2, "model_select": 2}, "time": 1524283418, "salt": "AnchoringExperiment", "event": "exposure"}
+{"inputs": {"userid": 0.5489100130364094}, "name": "AnchoringExperiment", "checksum": "da2c236d", "params": {"var": 1, "model_select": 1}, "time": 1524284333, "salt": "AnchoringExperiment", "event": "exposure"}
+{"inputs": {"userid": 0.9252243453417263}, "name": "AnchoringExperiment", "checksum": "da2c236d", "params": {"var": 1, "model_select": 1}, "time": 1524285241, "salt": "AnchoringExperiment", "event": "exposure"}
