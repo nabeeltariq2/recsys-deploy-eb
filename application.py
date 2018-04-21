@@ -16,7 +16,7 @@ import recommender2
 
 application = Flask(__name__)
 app = application
-# app.secret_key = '23987ETFSDDF345560DFSASF45DFDF567'
+app.secret_key = '23987ETFSDDF345560DFSASF45DFDF567'
 
 @app.route("/")
 def index():
