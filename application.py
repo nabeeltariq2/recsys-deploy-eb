@@ -1,22 +1,22 @@
 
 
 from flask import Flask, render_template, redirect, request, flash, session, url_for
-import model
-from sqlalchemy.orm import joinedload
-from sqlalchemy import text
-from planout.experiment import SimpleExperiment
-from planout.ops.random import *
-from random import randint, choice
-import random
-
-
-import recommender1
-import recommender2
+# import model
+# from sqlalchemy.orm import joinedload
+# from sqlalchemy import text
+# from planout.experiment import SimpleExperiment
+# from planout.ops.random import *
+# from random import randint, choice
+# import random
+#
+#
+# import recommender1
+# import recommender2
 
 
 application = Flask(__name__)
 app = application
-app.secret_key = '23987ETFSDDF345560DFSASF45DFDF567'
+# app.secret_key = '23987ETFSDDF345560DFSASF45DFDF567'
 
 @app.route("/")
 def index():
